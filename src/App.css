@@ -44,9 +44,14 @@ body {
   margin-bottom: 20px;
 }
 
+.login-sign_up-container {
+  display: flex;
+  gap: 16px; /* Adjust the value to the desired space */
+}
+
 .cta-button {
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color: green;
   color: white;
   border: none;

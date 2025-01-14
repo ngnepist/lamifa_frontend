@@ -11,7 +11,10 @@ const App = () => {
           <h1>Welcome To laMIFA</h1>
           <div className="underline"></div>
           <p>It is important to know your roots</p>
-          <button className="cta-button">Get Started</button>
+          <div className='login-sign_up-container'> 
+            <a href="#" onClick="" className="cta-button">Login</a>
+            <a href="#" onClick="" className="cta-button">Sign up</a>
+          </div>
         </div>
         <div className="hero-right">
           <h2>Welcome to laMIFA: here, family comes first!</h2>
