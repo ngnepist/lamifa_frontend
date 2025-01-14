@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./App.css";
 
 const App = () => {
+  const [showFamilyTreeList, setshowFamilyTreeList] = useState(true);
   return (
-    <div className="app-container">
-      <div className="hero">
+    <div className="hero">
+      {/* <div className={`landing-page ${showFamilyTreeList ? 'fade-out' : ''}`}> */}
+      <div className="landing-page">
         <div className="hero-left">
           <h1>Welcome To laMIFA</h1>
           <div className="underline"></div>
-          <p>It is important to know your origin</p>
+          <p>It is important to know your roots</p>
           <button className="cta-button">Get Started</button>
         </div>
         <div className="hero-right">
@@ -19,6 +21,9 @@ const App = () => {
           </p>
         </div>
       </div>
+      {/* <div className={`familyTree-list-container ${showFamilyTreeList ? 'visible' : ''}`}>
+
+      </div> */}
     </div>
   );
 };
