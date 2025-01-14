@@ -6,9 +6,9 @@ const App = () => {
     <div className="app-container">
       <div className="hero">
         <div className="hero-left">
-          <h1>Welcome To Paradise Nursery</h1>
+          <h1>Welcome To LAMIFA</h1>
           <div className="underline"></div>
-          <p>Where Green Meets Serenity</p>
+          <p>It is important to know your origin</p>
           <button className="cta-button">Get Started</button>
         </div>
         <div className="hero-right">

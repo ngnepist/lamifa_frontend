@@ -15,10 +15,11 @@ body {
   height: 100vh;
   padding: 20px;
   color: white;
-  filter: brightness(0.5);
-  background-size: cover;
+  filter: brightness(0.8);
+  background-size: cover; /* Assure que l'image occupe tout l'espace */
+  width: 100vw; /* 100% de la largeur de la fenêtre */
+  height: 100vh; /* 100% de la hauteur de la fenêtre */
 }
-
 .hero-left {
   flex: 1;
   max-width: 600px;
