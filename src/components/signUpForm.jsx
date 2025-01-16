@@ -26,6 +26,7 @@ const SignUpForm = () => {
         console.log('confirmed Password:', confirmedPassword);
         // Simulez une action de connexion
         if (password.value === confirmedPassword.value) {
+            alert('You are sign up succesfully! Now you can login!');
           } else {
             alert('Passwords do not match. Please try again.');
           }

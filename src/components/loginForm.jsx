@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './loginForm.css'; // Ajoutez des styles pour le formulaire
 
-const LoginForm = () => {
+const LoginForm = ({callbackLoginToken } ) => {
     const [loginFormData, setLoginFormData] = useState({
         id: '',
         email: '',
@@ -19,6 +19,7 @@ const LoginForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Simulez une action de connexion
+        callbackLoginToken(email.value + password.value);
         console.log('Email:', email);
         console.log('Password:', password);
     };
