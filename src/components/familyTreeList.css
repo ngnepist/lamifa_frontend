@@ -1,43 +1,32 @@
-/* Global styles */
-
-:root {
-    --navbar-height: auto; /* Hauteur de la première barre */
-    --search-bar-height: auto; /* Hauteur de la deuxième barre */
-  }
-
-  /* .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  } */
-  
-  /* Première barre de navigation (fixe en haut de la fenêtre) */
+/* Première barre de navigation (fixe en haut de la fenêtre) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(125, 125, 100, 1);
     color: white;
     padding: 10px 20px;
-    position: fixed; /* Fixer la barre */
-    top: 0; /*Alignée en haut */
+    position: fixed;
+    top: 0; 
     left: 0; 
-    width: 98%; /* Prend toute la largeur de la fenêtre */
-    height: auto;/*var(--navbar-height); */
+    width: 98%;
+    height: auto;
+    z-index: 200;
   }
   
   .logo {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
   }
   
-  .menu {
-    font-size: 1.5rem;
+  .home {
+    font-size: 1rem;
   }
   
   .dropdown {
     position: relative;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   
   .dropdown-menu {
@@ -50,7 +39,6 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden;
-    z-index: 999;
     font-size: 1rem;
   }
   
@@ -68,23 +56,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #444;
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 10px 20px;
     position: fixed; 
     left: 0;
-    width: 98%; /* Prend toute la largeur de la fenêtre */
-    height: auto; /*var(--search-bar-height); /* Utilise la hauteur dynamique */
+    width: 98%; 
+    height: auto; 
     z-index: 100;
     }
   
   .list-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
   }
 
 .create-button {
     background-color: #28a745;
+    font-size: 1rem;
+    border: none;
+    /* background-color: #1c887a; */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .create-button:hover {
@@ -93,12 +89,16 @@
 
        
 .search-controls {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     background-color: white;
     border-radius: 20px;
     padding: 5px 10px;
     margin-right: 20px;
+    display: grid;
+    grid-auto-flow: column; 
+    justify-content: center; 
+    gap: 10px; 
 }
 
 .search-controls input[type="text"] {
@@ -120,10 +120,6 @@
     font-size: 1rem;
 }
 
-.search-controls button.clear-btn {
-    background-color: #b52d1f;
-}
-
 .search-controls button:hover {
     opacity: 0.9;
 }
@@ -132,20 +128,24 @@
 .family_tree-grid {
     display:flex;
     flex-direction: column;
-    width: 100%;
+    width: 99%;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: white;
+    position: absolute;
 }
 .family_tree-list {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: white;
     padding: 20px;
     width: 100%;
     align-items: center;
+    position: relative;
+    top: 0%;
+    left: 0%;
 }
 
 /* Product object */
@@ -154,7 +154,7 @@
     max-width: calc(26.33% - 20px); 
     margin-bottom: 20px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(200, 200, 200, 0.8);
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
@@ -171,12 +171,11 @@
 
 .family_tree-title {
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .family_tree-image {
     max-width: 100%;
-    height: 200px; /* Adjust height for better consistency */
+    height: 200px; 
 }
   
   .item-actions {
@@ -202,10 +201,6 @@
   
   /* Styles adaptatifs */
   @media (max-width: 768px) {
-    /* :root {
-        --navbar-height: 50px;
-        --search-bar-height: 50px;
-      } */
     .navbar {
       flex-direction: column;
       align-items: flex-start;
@@ -214,22 +209,42 @@
     .search-bar {
       flex-direction: column;
       align-items: flex-start;
+      gap: 10px
     }
   
     .search-controls {
       flex-direction: column;
-      width: 80%;
+      font-size: 0.5rem;
       
     }
   
-    .search-controls input,
+    .search-controls input{
+      font-size: 0.5rem;
+    }
+
     .search-controls button {
       width: 100%;
-      margin-bottom: 10px;
+      font-size: 0.75rem;
     }
+    .create-button:hover {
+      background-color: #218838;
+      font-size: 1rem;
+  }
     .item-actions {
         width: 100%;
         justify-content: flex-end;
+        flex-direction: column;
       }
+
+      .enter-button {
+        background-color: #007bff;
+        font-size: 0.75rem;
+      }
+      
+      .delete-button {
+        background-color: #dc3545;
+        font-size: 0.75rem;
+      }
+      
   }
   

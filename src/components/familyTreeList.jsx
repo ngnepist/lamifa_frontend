@@ -5,12 +5,13 @@ const FamilyTreeList = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [list, setList] = useState([
-    { id: 1, title: "Object 1", status: "Active", image: "https://via.placeholder.com/50" },
-    { id: 2, title: "Object 2", status: "Inactive", image: "https://via.placeholder.com/50" },
-    { id: 3, title: "Object 3", status: "Active", image: "https://via.placeholder.com/50" },
+    { id: 1, title: "Object 1", status: "Active", image: "../../images/th.jpeg" },
+    { id: 2, title: "Object 2", status: "Inactive", image: "../../images/th.jpeg" },
+    { id: 3, title: "Object 3", status: "Active", image: "../../images/th.jpeg" },
   ]);
-  const componentRef = useRef(null); // Créer une référence
-  const elementRef = useRef(null);
+  const navbarRef = useRef(null); // Créer une référence
+  const searchbarRef = useRef(null);
+  const listgridRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const handleCreate = () => {
@@ -19,7 +20,7 @@ const FamilyTreeList = () => {
       id: newId,
       title: `Object ${newId}`,
       status: "New",
-      image: "https://via.placeholder.com/50",
+      image: "../../images/th.jpeg",
     };
     setList([...list, newItem]);
   };
@@ -32,20 +33,31 @@ const FamilyTreeList = () => {
     alert(`Searching for: ${searchQuery}`);
   };
 
-  const handleClear = () => {
-    setSearchQuery("");
-  };
+  // const handleClear = () => {
+  //   setSearchQuery("");
+  // };
 
   useEffect(() => {
-    if (componentRef.current) {
+    if (navbarRef.current) {
       // Accéder à la hauteur du composant
-      const currentHeight = componentRef.current.getBoundingClientRect().height;
-        if (elementRef.current) {
-        elementRef.current.style.top = currentHeight.toString()+"px";
+      const currentHeight = navbarRef.current.getBoundingClientRect().height;
+        if (searchbarRef.current) {
+        searchbarRef.current.style.top = currentHeight.toString()+"px";
       }
     }
 
-  }, [showDropdown]); // Exécuter seulement après le premier rendu
+  }, [showDropdown]);// Exécuter seulement après le premier rendu
+
+  useEffect(() => {
+    if (navbarRef.current && searchbarRef.current ) {
+      // Accéder à la hauteur du composant
+      const currentHeight = navbarRef.current.getBoundingClientRect().height + searchbarRef.current.getBoundingClientRect().height;
+        if (listgridRef.current) {
+        listgridRef.current.style.top = currentHeight.toString()+"px";
+      }
+    }
+
+  }, [showDropdown, searchbarRef.current,navbarRef.current ]); // Exécuter seulement après le premier rendu
 
   useEffect(() => {
     if (showDropdown && dropdownRef.current) {
@@ -93,31 +105,31 @@ const FamilyTreeList = () => {
     }
   }, [showDropdown]); // Réagir à l'ouverture du dropdown
 
-    // Fermer le dropdown en cliquant en dehors
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-          if (
-            dropdownRef.current &&
-            !dropdownRef.current.contains(event.target)
-          ) {
-            setShowDropdown(false);
-          }
-        };
-    
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
-        };
-      }, []);
+  // Fermer le dropdown en cliquant en dehors
+  useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target)
+        ) {
+          setShowDropdown(false);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
 
 
   return (
     // <div>
         <div className="container">
         {/* Première barre de navigation */}
-        <nav className="navbar" ref={componentRef}>
+        <nav className="navbar" ref={navbarRef}>
             <div className="logo">Logo</div>
-            <div className="menu">Menu</div>
+            <div className="home">Home</div>
             <div
             className="dropdown"
             onClick={() => setShowDropdown(!showDropdown)} ref={dropdownRef}
@@ -133,8 +145,8 @@ const FamilyTreeList = () => {
         </nav>
 
         {/* Deuxième barre de navigation */}
-        <div className="search-bar" ref={elementRef}>
-            <h2 className="list-title">List Title</h2>
+        <div className="search-bar" ref={searchbarRef}>
+            <h2 className="list-title">List of Family Tree</h2>
             <div className="search-controls">
             <input
                 type="text"
@@ -143,7 +155,7 @@ const FamilyTreeList = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
-            <button onClick={handleClear} className ='clear-btn'>Clear</button>
+            {/* <button onClick={handleClear} className ='clear-btn'>Clear</button> */}
             </div>
             <button className="create-button" onClick={handleCreate}>
                 Create New
@@ -151,7 +163,7 @@ const FamilyTreeList = () => {
         </div>
 
         {/* Liste des objets */}
-        <div className="family_tree-grid">
+        <div className="family_tree-grid" ref={listgridRef}>
             <div className="family_tree-list">
                 {list.map((item, index) => (
                     <div className="family_tree-object" key={item.id}>
