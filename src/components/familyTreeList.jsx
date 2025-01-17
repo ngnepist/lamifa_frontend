@@ -33,10 +33,6 @@ const FamilyTreeList = () => {
     alert(`Searching for: ${searchQuery}`);
   };
 
-  // const handleClear = () => {
-  //   setSearchQuery("");
-  // };
-
   useEffect(() => {
     if (navbarRef.current) {
       // Accéder à la hauteur du composant
@@ -155,7 +151,6 @@ const FamilyTreeList = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
-            {/* <button onClick={handleClear} className ='clear-btn'>Clear</button> */}
             </div>
             <button className="create-button" onClick={handleCreate}>
                 Create New
