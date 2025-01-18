@@ -4,10 +4,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.2); 
     display: flex;           
     justify-content: center;
     align-items: center;
+  }
+
+  .sub_content h1{
+    text-align: center;
+  }
+
+.form_element{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-direction: column; 
   }
 
 .choice_how_to_add {
@@ -18,25 +31,64 @@
 .choice_how_to_add button {
     width: 100%;
     background-color: #218838;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .choice_how_to_add button:hover {
     background-color: #218838;
-    font-size: 1rem;
+}
+
+.add_by_create{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column; 
+}
+
+.title_of_tree {
+    font-size: 1.5rem;
+    display: flex;
+    /* gap:20px; */
+    flex-direction: column; 
+  }
+
+.title_of_tree input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
+
+.img_of_tree_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 20px; */
+    flex-direction: column; 
 }
 
 
-.title_of_tree {
-    font-size: 1rem;
+.image_of_tree{
+    font-size: 1.5rem;
+    display: flex;
+    /* gap:20px; */
+    flex-direction: column; 
   }
 
-.image_of_tree{
-    font-size: 1rem;
-  }
+.image_of_tree input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
 
 .browse_an_image{
-    width: 100%;
     background-color: #218838;
     font-size: 1rem;
 }
@@ -44,8 +96,19 @@
     background-color: #218838;
 }
 .id_of_tree{
-    font-size: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    /* gap:20px; */
+    flex-direction: column;
   }
+
+.id_of_tree input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
 
 .form_actions {
     display: flex;
@@ -53,19 +116,21 @@
 }
 
 .add-button {
-background-color: #007bff;
+    background-color: #007bff;
+    font-size: 1.5rem;
 }
 
 .back-button {
-background-color: #dc3545;
+    background-color: #dc3545;
+    font-size: 1.5rem;
 }
 
 .add-button:hover {
-background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .back-button:hover {
-background-color: #c82333;
+    background-color: #c82333;
 }
 
 /* Styles adaptatifs */
@@ -84,11 +149,11 @@ background-color: #c82333;
 
     .add-button {
         background-color: #007bff;
-        font-size: 0.75rem;
+        font-size: 1.5rem;
     }
     
     .back-button {
         background-color: #dc3545;
-        font-size: 0.75rem;
+        font-size: 1.5rem;
     }
 }

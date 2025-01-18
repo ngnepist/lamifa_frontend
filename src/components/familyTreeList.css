@@ -89,16 +89,14 @@
 
        
 .search-controls {
-    /* display: flex; */
+    display: flex;
     align-items: center;
     background-color: white;
     border-radius: 20px;
     padding: 5px 10px;
-    margin-right: 20px;
-    display: grid;
-    grid-auto-flow: column; 
     justify-content: center; 
     gap: 10px; 
+    width: 30%;
 }
 
 .search-controls input[type="text"] {
@@ -107,9 +105,10 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 90%;
 }
 
-.search-controls button {
+/* .search-controls button {
     border: none;
     background-color: #1c887a;
     color: white;
@@ -122,7 +121,7 @@
 
 .search-controls button:hover {
     opacity: 0.9;
-}
+} */
 
   /* Product Grid */
 .family_tree-grid {
@@ -133,14 +132,11 @@
     justify-content: center;
     background-color: white;
     position: absolute;
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 .family_tree-list {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    /* justify-content: space-between; */
     background-color: white;
     padding: 20px;
     width: 100%;
@@ -148,7 +144,6 @@
     position: relative;
     top: 0%;
     left: 0%;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -219,17 +214,17 @@
     .search-controls {
       flex-direction: column;
       font-size: 0.5rem;
-      
+      width: 80%;
     }
   
     .search-controls input{
       font-size: 0.5rem;
     }
 
-    .search-controls button {
+    /* .search-controls button {
       width: 100%;
       font-size: 0.75rem;
-    }
+    } */
     .create-button:hover {
       background-color: #218838;
       font-size: 1rem;
